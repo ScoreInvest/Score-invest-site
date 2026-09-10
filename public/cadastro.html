@@ -24,22 +24,26 @@
 
             <form>
                 <div class="field">
-                    <label for="nome">Nome da empresa</label>
-                    <input type="text" id="nome" placeholder="Sua empresa" required>
+                    <label for="nome">Seu nome</label>
+                    <input type="text" id="ipt_nome" placeholder="Ex:João Ferreira" required>
+                </div>
+                <div class="field">
+                    <label for="nome">nome da empresa</label>
+                    <input type="text" id="ipt_empresa" placeholder="Sua empresa" required>
                 </div>
                 <div class="field">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="voce@empresa.com" required>
+                    <input type="email" id="ipt_email" placeholder="voce@empresa.com" required>
                 </div>
                 <div class="field">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="••••••••" required>
+                    <input type="password" id="ipt_senha" placeholder="••••••••" required>
                 </div>
                 <div class="field">
                     <label for="confirmar">Confirmar senha</label>
-                    <input type="password" id="confirmar" placeholder="••••••••" required>
+                    <input type="password" id="ipt_confirmar" placeholder="••••••••" required>
                 </div>
-                <button type="submit" class="btn-primary-cadastro-login"> Cadastrar-se</button>
+                <button type="button" class="btn-primary-cadastro-login" onclick="cadastrar()"> Cadastrar-se</button>
             </form>
             <div class="switch">
                 Já tem conta? <a href="login.html">Entrar</a>
@@ -47,6 +51,44 @@
         </div>
     </div>
 
-</body>
 
+
+    <script>
+        function cadastrar(){
+            let nome = ipt_nome.value
+            let empresa = ipt_empresa.value
+            let email = ipt_email.value
+            let senha = ipt_senha.value;
+
+            if(senha != ipt_confirmar.value){
+                alert("As senhas não coincidem");
+                return;
+            }
+
+            fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha,
+                empresaServer: empresa
+            })
+        })
+        .then(function(resposta){
+            if(resposta.ok){
+                alert("Cadastro Realizado com sucesso!")
+                window.location.href = "login.html"
+            }else{
+                throw new Error("Erro ao realizar cadastro");
+            }   
+        }).catch(function(err){
+            console.log(err);
+            alert("Não foi possível realizar o cadastro");
+        })
+        }
+    </script>
+</body>
 </html>

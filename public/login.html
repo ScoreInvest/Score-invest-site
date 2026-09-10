@@ -25,13 +25,13 @@
             <form>
                 <div class="field">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="voce@empresa.com" required>
+                    <input type="email" id="ipt_email" placeholder="voce@empresa.com" required>
                 </div>
                 <div class="field">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="••••••••" required>
+                    <input type="password" id="ipt_senha" placeholder="••••••••" required>
                 </div>
-                <button type="submit" class="btn-primary-cadastro-login"> Entrar </button>
+                <button type="button" class="btn-primary-cadastro-login"  onclick="logar()"> Entrar </button>
             </form>
             <div class="switch">
                 Não tem conta? <a href="cadastro.html">Cadastrar-se</a>
@@ -39,6 +39,44 @@
         </div>
     </div>
 
+    <script>
+    function logar() {
+        let email = ipt_email.value;
+        let senha = ipt_senha.value;
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        })
+        .then(function (resposta) {
+            if (resposta.ok) {
+                return resposta.json();
+            } else {
+                throw new Error("E-mail ou senha inválidos");
+            }
+        })
+        .then(function (dados) {
+
+            localStorage.setItem("ID_USUARIO", dados.id);
+            localStorage.setItem("NOME_USUARIO", dados.nome);
+            localStorage.setItem("EMAIL_USUARIO", dados.email);
+            localStorage.setItem("EMPRESA_ID", dados.empresaId);
+            localStorage.setItem("ROLE_USUARIO", dados.role);
+
+            window.location.href = "index.html";
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            alert("E-mail ou senha inválidos");
+        });
+    }
+</script>
 </body>
 
 </html>

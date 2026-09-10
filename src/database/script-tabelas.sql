@@ -1,58 +1,51 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+use user_core; 
 
-/*
-comandos para mysql server
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+CREATE TABLE role (
+	id_role INT PRIMARY KEY auto_increment,
+    name_role varchar(50)
 );
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE permissions(
+	id_permission INT PRIMARY KEY auto_increment,
+    name_permission VARCHAR(50)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE role_permissions(
+	id_role_fk INT,
+	id_permission_fk INT,
+    PRIMARY KEY(id_permission_fk, id_role_fk), 
+    FOREIGN KEY(id_role_fk) REFERENCES role(id_role),
+    FOREIGN KEY(id_permission_fk) REFERENCES permissions(id_permission)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE enterprise (
+	id_enterprise INT PRIMARY KEY auto_increment, 
+    name VARCHAR(100), 
+	cnpj VARCHAR(20),
+	email VARCHAR(100)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+CREATE TABLE userr (
+	id INT PRIMARY KEY auto_increment, 
+    userr_name varchar(50),
+    password_hash varchar(255), 
+    email VARCHAR(100), 
+    fk_empresa INT, 
+    fk_role INT,
+    FOREIGN KEY (fk_empresa) REFERENCES enterprise(id_enterprise),
+    FOREIGN KEY (fk_role) REFERENCES role(id_role)
 );
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+DESCRIBE role;
+DESCRIBE permissions;
+
+SELECT 
+	u.userr_name,
+    u.email,
+    e.name AS Empresa, 
+    r.name_role AS Função
+FROM userr u 
+JOIN enterprise e 
+	ON u.fk_empresa = e.id_enterprise
+JOIN role r
+	ON u.fk_role = r.id_role
