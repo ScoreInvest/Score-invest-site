@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoreInvest — Análise Técnica de Ativos Financeiros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+<body id="top">
+
+    <header>
+        <nav>
+            <div>
+               <a href="#top" class="logo" style="text-decoration:none;">
+                <img src="./img/logo-scoreinvest.png" alt="ScoreInvest" class="logo-mark">
+                Score<b>Invest</b>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#problema">O problema</a>
+                <a href="#solucao">A solução</a>
+                <a href="#funciona">Como funciona</a>
+                <a href="#equipe">Equipe</a>
+            </div>
+            <a href="cadastro.html" class="nav-cta">Criar conta</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="wrap" style="display:contents;">
+            <div class="box-contexto">
+                <h1>Dados de ativos financeiros, organizados de um jeito que faz sentido.</h1>
+                <p class="lead">o Score<span style="color: #3CB54A;">Invest</span> reúne o histórico de preços de ativos do mercado financeiro e calcula
+                    médias móveis e indicadores de tendência automaticamente — para facilitar a leitura do
+                    comportamento do ativo ao longo do tempo.</p>
+                <div class="btn-row">
+                    <a href="#problema" class="btn-secondary">Entenda o problema</a>
+                </div>
+                <div class="hero-note">
+                    <div>
+                        <strong>4</strong>
+                        médias móveis calculadas automaticamente (9, 21, 50 e 200 períodos)
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="chart-label">Preço do ativo vs. médias móveis</div>
+                <div class="bars">
+                    <div class="bar" style="height:55%"></div>
+                    <div class="bar up" style="height:78%"></div>
+                    <div class="bar" style="height:60%"></div>
+                    <div class="bar" style="height:68%"></div>
+                    <div class="bar up" style="height:90%"></div>
+                    <div class="bar" style="height:50%"></div>
+                </div>
+                <div class="legend">
+                    <span><i class="dot" style="background:var(--accent)"></i>Preço do ativo</span>
+                    <span><i class="dot" style="background:var(--surface-2); border:1px solid var(--border)"></i>Média
+                        móvel</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problema" id="problema">
+        <div class="wrap">
+            <div>
+                <h2>Muita informação, pouca interpretação</h2>
+                <p>O mercado financeiro gera uma quantidade grande de dados históricos de preços, mas interpretar
+                    esses dados manualmente é difícil, principalmente para quem não tem experiência com análise
+                    técnica. Isso torna mais lento identificar tendências e comportamentos relevantes dos ativos.</p>
+            </div>
+            <div class="problema-box">
+                <ul>
+                    <li><b>01</b> Grande volume de dados históricos, difícil de acompanhar manualmente</li>
+                    <li><b>02</b> Cálculo manual de médias móveis é trabalhoso e sujeito a erro</li>
+                    <li><b>03</b> Dificuldade em identificar tendências de curto, médio e longo prazo</li>
+                    <li><b>04</b> Falta de um ambiente único para acompanhar os ativos analisados</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucao">
+        <div class="wrap">
+            <h2>O que o Score<span style="color: #3CB54A;">Invest</span> organiza para você</h2>
+            <p class="section-lead">Reúne o histórico de preços dos ativos e transforma isso em indicadores de
+                análise técnica, sem prometer garantir resultados de investimento.</p>
+            <div class="cards">
+                <div class="card">
+                    <span class="tag">Dados</span>
+                    <h3>Histórico de preços</h3>
+                    <p>Coleta dados históricos de preços de ativos a partir de fontes externas e organiza por período.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">Indicadores</span>
+                    <h3>Médias móveis</h3>
+                    <p>Calcula automaticamente as médias móveis de 9, 21, 50 e 200 períodos para os ativos
+                        selecionados.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">Tendências</span>
+                    <h3>Curto, médio e longo prazo</h3>
+                    <p>Identifica a tendência do ativo a partir da relação entre o preço atual e as médias móveis.</p>
+                </div>
+                <div class="card amber">
+                    <span class="tag">Cruzamentos</span>
+                    <h3>Golden Cross e Death Cross</h3>
+                    <p>Sinaliza cruzamentos entre médias móveis para apoiar a interpretação do comportamento do ativo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="como-funciona" id="funciona">
+        <div class="wrap">
+            <h2>Como funciona</h2>
+            <p class="section-lead">Três etapas entre o dado bruto e uma leitura mais clara do ativo.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>O sistema coleta os dados</h3>
+                    <p>O histórico de preços do ativo é obtido a partir de fontes externas.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>As médias móveis são calculadas</h3>
+                    <p>O sistema calcula as médias móveis e identifica tendências e cruzamentos automaticamente.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>Você acompanha o resultado</h3>
+                    <p>Indicadores e tendências ficam disponíveis no painel para apoiar a sua análise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipe">
+        <div class="wrap">
+            <h2>Idealizadores do projeto: </h2>
+            <p class="section-lead">São Paulo Tech School · 2ADSA · 2026.2</p>
+            <div class="equipe-grid">
+                <div class="membro">
+                    <div class="avatar">AC</div><span>Ana Carolina</span><small>Front-End</small>
+                </div>
+                <div class="membro">
+                    <div class="avatar">CC</div><span>Caio Conde</span><small>Negócios</small>
+                </div>
+                <div class="membro">
+                    <div class="avatar">EL</div><span>Elisandro Morais</span><small>Back-End</small>
+                </div>
+                <div class="membro">
+                    <div class="avatar">ER</div><span>Erick Gabriel</span><small>Back-end</small>
+                </div>
+                <div class="membro">
+                    <div class="avatar">HA</div><span>Heloisa de Almeida</span><small>Automação</small>
+                </div>
+                <div class="membro">
+                    <div class="avatar">JM</div><span>João Miguel</span><small>DBA</small>
+                </div>
+                <div class="membro">
+                    <div class="avatar">LE</div><span>Leandro Bezzera</span><small>Negócios</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="foot-brand">ScoreInvest — Projeto Integrado, São Paulo Tech School</div>
+            <div class="foot-links">
+                <a href="#problema">O problema</a>
+                <a href="#solucao">A solução</a>
+                <a href="#equipe">Equipe</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
