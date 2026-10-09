@@ -1,0 +1,296 @@
+/* ========================================
+   SCOREINVEST — TELA DE CADASTRO
+   Identidade visual institucional
+======================================== */
+
+/* PALETA DE CORES */
+
+:root {
+    --bg: #00050c;
+    --surface: #101010;
+    --surface-2: #080b10;
+    --border: #292929;
+    --text: #F5F7FA;
+    --text-muted: #A9B4C8;
+    --accent: #3CB54A;
+    --accent-dark: #1B5E3B;
+    --on-accent: #0B1B33;
+}
+
+/* FUNDO DA PÁGINA */
+
+#body-cadastro-login {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Manrope', sans-serif;
+    color: var(--text);
+
+    background-color: var(--bg);
+    background-image:
+        linear-gradient(
+            rgba(0, 5, 12, 0.82),
+            rgba(0, 5, 12, 0.90)
+        ),
+        url("img/imagem-home-site.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* CONTÊINER */
+
+#body-cadastro-login > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARTÃO DE CADASTRO */
+
+#body-cadastro-login .card-cadastro-login {
+    position: relative;
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: 440px;
+    padding: 38px 34px;
+
+    background: rgba(16, 16, 16, 0.97);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 14px;
+
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+/* SETA PARA VOLTAR */
+
+#body-cadastro-login .card-cadastro-login > a {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--text-muted);
+    background: #080b10;
+
+    border: 1px solid #343a46;
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+#body-cadastro-login .card-cadastro-login > a:hover {
+    color: var(--on-accent);
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* TÍTULO */
+
+#body-cadastro-login .card-cadastro-login h1 {
+    margin: 10px 0 8px;
+
+    color: var(--text);
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.6px;
+    text-align: center;
+}
+
+/* TEXTO DESCRITIVO */
+
+#body-cadastro-login .card-cadastro-login p.sub {
+    margin: 0 0 28px;
+
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* CAMPOS DO FORMULÁRIO */
+
+#body-cadastro-login .card-cadastro-login .field {
+    margin-bottom: 18px;
+}
+
+/* RÓTULOS */
+
+#body-cadastro-login .card-cadastro-login label {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #D4DCE8;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* INPUTS */
+
+#body-cadastro-login .card-cadastro-login input {
+    display: block;
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 13px 14px;
+
+    background: #080b10;
+    color: #F5F7FA;
+
+    border: 1px solid #343a46;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* TEXTO DE EXEMPLO DOS INPUTS */
+
+#body-cadastro-login .card-cadastro-login input::placeholder {
+    color: #778397;
+    opacity: 1;
+}
+
+/* INPUT SELECIONADO */
+
+#body-cadastro-login .card-cadastro-login input:focus {
+    background: #0c1118;
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px rgba(60, 181, 74, 0.16);
+}
+
+/* BOTÃO CADASTRAR */
+
+#body-cadastro-login .btn-primary-cadastro-login {
+    display: block;
+    box-sizing: border-box;
+
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px 18px;
+
+    background: var(--accent);
+    color: var(--on-accent);
+
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* EFEITO DO BOTÃO */
+
+#body-cadastro-login .btn-primary-cadastro-login:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+}
+
+#body-cadastro-login .btn-primary-cadastro-login:active {
+    transform: translateY(0);
+}
+
+#body-cadastro-login .btn-primary-cadastro-login:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* LINK PARA ENTRAR */
+
+#body-cadastro-login .card-cadastro-login .switch {
+    margin-top: 24px;
+
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+#body-cadastro-login .card-cadastro-login .switch a {
+    color: var(--accent);
+    font-weight: 800;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+#body-cadastro-login .card-cadastro-login .switch a:hover {
+    color: #76D982;
+    text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 480px) {
+    #body-cadastro-login {
+        padding: 24px 14px;
+        background-attachment: scroll;
+    }
+
+    #body-cadastro-login .card-cadastro-login {
+        padding: 34px 22px;
+    }
+
+    #body-cadastro-login .card-cadastro-login h1 {
+        font-size: 24px;
+    }
+
+    #body-cadastro-login .card-cadastro-login p.sub {
+        font-size: 12px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+    #body-cadastro-login *,
+    #body-cadastro-login *::before,
+    #body-cadastro-login *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
