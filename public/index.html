@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo-scoreinvest.png">
     <script src="theme.js"></script>
 </head>
 
@@ -22,11 +23,11 @@
                 </a>
             </div>
             <div class="nav-links">
-                <a href="#problema">O problema</a>
-                <a href="#solucao">A solução</a>
-                <a href="#funciona">Como funciona</a>
-                <a href="#equipe">Equipe</a>
-            </div>
+    <a href="#problema" class="link-problema">O problema</a>
+    <a href="#solucao" class="link-solucao">A solução</a>
+    <a href="#funciona" class="link-funciona">Como funciona</a>
+    <a href="#equipe" class="link-equipe">Equipe</a>
+</div>
             <button type="button" id="themeToggle" class="theme-switch" role="switch" aria-checked="true"
                 aria-label="Modo escuro" title="Mudar para modo claro">
                 <span class="thumb">
@@ -50,11 +51,6 @@
             <div class="btn-row">
                 <a href="#problema" class="btn-secondary">Entenda o problema</a>
             </div>
-
-            <div class="hero-note">
-                <strong>4</strong>
-                <span>médias móveis calculadas automaticamente (9, 21, 50 e 200 períodos)</span>
-            </div>
         </div>
 
     </div>
@@ -63,7 +59,7 @@
     <section class="problema" id="problema">
         <div class="wrap">
             <div>
-                <h2>Muita informação, pouca interpretação</h2>
+                <h2>Muita informação, <span class="texto-destaque">pouca interpretação.</span></h2>
                 <p>O mercado financeiro gera uma quantidade grande de dados históricos de preços, mas interpretar
                     esses dados manualmente é difícil, principalmente para quem não tem experiência com análise
                     técnica. Isso torna mais lento identificar tendências e comportamentos relevantes dos ativos.</p>
@@ -80,41 +76,46 @@
     </section>
 
     <section id="solucao">
-        <div class="wrap">
-            <h2>O que o Score<span style="color: var(--accent);">Invest</span> organiza para você</h2>
-            <p class="section-lead">Reúne o histórico de preços dos ativos e transforma isso em indicadores de
-                análise técnica, sem prometer garantir resultados de investimento.</p>
-            <div class="cards">
-                <div class="card">
-                    <span class="tag">Dados</span>
-                    <h3>Histórico de preços</h3>
-                    <p>Coleta dados históricos de preços de ativos a partir de fontes externas e organiza por período.</p>
-                </div>
-                <div class="card">
-                    <span class="tag">Indicadores</span>
-                    <h3>Médias móveis</h3>
-                    <p>Calcula automaticamente as médias móveis de 9, 21, 50 e 200 períodos para os ativos
-                        selecionados.</p>
-                </div>
-                <div class="card">
-                    <span class="tag">Tendências</span>
-                    <h3>Curto, médio e longo prazo</h3>
-                    <p>Identifica a tendência do ativo a partir da relação entre o preço atual e as médias móveis.</p>
-                </div>
-                <div class="card amber">
-                    <span class="tag">Cruzamentos</span>
-                    <h3>Golden Cross e Death Cross</h3>
-                    <p>Sinaliza cruzamentos entre médias móveis para apoiar a interpretação do comportamento do ativo.
-                    </p>
-                </div>
+    <div class="wrap">
+        <h2>O que o Score<span style="color: var(--accent);">Invest</span> organiza para você</h2>
+
+        <p class="section-lead">
+            Reúne o histórico de preços dos ativos e transforma isso em indicadores de
+            análise técnica, sem prometer garantir resultados de investimento.
+        </p>
+
+        <div class="cards">
+            <div class="card card-dados">
+                <span class="tag">Dados</span>
+                <h3>Histórico de preços</h3>
+                <p>Coleta dados históricos de preços de ativos a partir de fontes externas e organiza por período.</p>
+            </div>
+
+            <div class="card card-indicadores">
+                <span class="tag">Indicadores</span>
+                <h3>Médias móveis</h3>
+                <p>Calcula automaticamente as médias móveis de 9, 21, 50 e 200 períodos para os ativos selecionados.</p>
+            </div>
+
+            <div class="card card-tendencias">
+                <span class="tag">Tendências</span>
+                <h3>Curto, médio e longo prazo</h3>
+                <p>Identifica a tendência do ativo a partir da relação entre o preço atual e as médias móveis.</p>
+            </div>
+
+            <div class="card amber card-cruzamentos">
+                <span class="tag">Cruzamentos</span>
+                <h3>Golden Cross e Death Cross</h3>
+                <p>Sinaliza cruzamentos entre médias móveis para apoiar a interpretação do comportamento do ativo.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="como-funciona" id="funciona">
         <div class="wrap">
-            <h2>Como funciona</h2>
-            <p class="section-lead">Três etapas entre o dado bruto e uma leitura mais clara do ativo.</p>
+            <h2>Mas, como funciona?</h2>
+            <p class="section-lead">São três etapas entre o dado bruto e uma leitura mais clara do ativo.</p>
             <div class="steps">
                 <div class="step">
                     <div class="step-num">1</div>
@@ -168,11 +169,6 @@
     <footer>
         <div class="wrap">
             <div class="foot-brand">ScoreInvest — Projeto Integrado, São Paulo Tech School</div>
-            <div class="foot-links">
-                <a href="#problema">O problema</a>
-                <a href="#solucao">A solução</a>
-                <a href="#equipe">Equipe</a>
-            </div>
         </div>
     </footer>
 
