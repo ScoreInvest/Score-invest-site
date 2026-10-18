@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ScoreInvest - Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js" defer></script>
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="logo">
+            <img src="img/logo-scoreinvest.png" alt="Logo ScoreInvest">
+            <h2>Score<span>Invest</span></h2>
+        </div>
+
+        <div class="usuario">
+            <span class="notificacao">♧</span>
+            <div class="perfil-icone">C</div>
+            <span>Analista Financeiro</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+    <div class="estrutura">
+
+        <aside class="sidebar">
+            <nav>
+                <a href="#" class="menu-item ativo">
+                    <span class="menu-icone">▦</span>
+                    Dashboard
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icone">↗</span>
+                    Ativos
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icone">▤</span>
+                    Carteira
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icone">▥</span>
+                    Relatórios
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icone">⚙</span>
+                    Configurações
+                </a>
+            </nav>
+        </aside>
+
+        <main class="conteudo">
+
+            <section class="cabecalho-pagina">
+                <div>
+                    <h1>Análise de Ativos</h1>
+                    <p>Seu portfólio, em detalhes.</p>
+                </div>
+
+                <div class="data">
+                    <span>▦</span>
+                    <span>18 de outubro de 2026</span>
+                </div>
+            </section>
+
+            <section class="indicadores">
+
+                <div class="card">
+                    <p class="card-titulo">Valor da carteira</p>
+                    <h2>R$ 125.480,32</h2>
+                    <p class="positivo">+8,42% no último mês</p>
+                </div>
+
+                <div class="card">
+                    <p class="card-titulo">Ativos em alta</p>
+                    <h2>12</h2>
+                    <p class="card-descricao">de 18 ações</p>
+                </div>
+
+                <div class="card">
+                    <p class="card-titulo">Ativos em baixa</p>
+                    <h2>6</h2>
+                    <p class="negativo">de 18 ações</p>
+                </div>
+
+                <div class="card">
+                    <p class="card-titulo">Variação mensal</p>
+                    <h2 class="valor-positivo">+8,42%</h2>
+                    <p class="card-descricao">Últimos 30 dias</p>
+                </div>
+
+            </section>
+
+            <section class="graficos">
+
+                <div class="painel desempenho">
+
+                    <div class="painel-cabecalho">
+                        <h3>Desempenho dos Ativos</h3>
+                        <p>Variação percentual nos últimos 30 dias</p>
+                    </div>
+
+                    <div class="grafico-barras">
+                        <canvas id="graficoBarras"></canvas>
+                    </div>
+
+                </div>
+
+                <div class="painel distribuicao">
+
+                    <div class="painel-cabecalho">
+                        <h3>Distribuição da Carteira</h3>
+                        <p>Participação de cada ativo no total investido</p>
+                    </div>
+
+                    <div class="grafico-pizza">
+                        <canvas id="graficoRosca"></canvas>
+                    </div>
+
+                    <div class="total-carteira">
+                        <span>Total investido</span>
+                        <strong>R$ 125.480,32</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <p class="rodape">
+                Dados ilustrativos para apresentação acadêmica.
+            </p>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
