@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Entrar — ScoreInvest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="img/logo-scoreinvest.png">
+    <link rel="stylesheet" href="styleAuth.css">
+
+    <script src="theme.js"></script>
+</head>
+
+<body id="body-cadastro-login">
+    <div>
+        <main class="card-cadastro-login">
+            <a href="index.html">← Voltar ao site</a>
+
+            <h1>Entrar</h1>
+            <p class="sub">Informe seu e-mail e sua senha.</p>
+
+            <form id="form-login">
+                <div class="field">
+                    <label for="ipt_email">E-mail</label>
+                    <input
+                        type="email"
+                        id="ipt_email"
+                        name="email"
+                        placeholder="voce@empresa.com"
+                        autocomplete="username"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="ipt_senha">Senha</label>
+                    <input
+                        type="password"
+                        id="ipt_senha"
+                        name="senha"
+                        placeholder="Sua senha"
+                        autocomplete="current-password"
+                        required>
+                </div>
+
+                <button
+                    type="submit"
+                    id="btn_entrar"
+                    class="btn-primary-cadastro-login">
+                    Entrar
+                </button>
+            </form>
+
+            <div class="switch">
+                Não tem conta?
+                <a href="cadastro.html">Criar conta</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const formulario = document.getElementById("form-login");
+        const botao = document.getElementById("btn_entrar");
+
+        formulario.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            if (botao.disabled) {
+                return;
+            }
+
+            const email = document.getElementById("ipt_email").value.trim();
+            const senha = document.getElementById("ipt_senha").value;
+
+            botao.disabled = true;
+            botao.textContent = "Entrando...";
+
+            try {
+                const resposta = await fetch("/usuarios/autenticar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        emailServer: email,
+                        senhaServer: senha
+                    })
+                });
+
+                if (!resposta.ok) {
+                    if (resposta.status === 401 || resposta.status === 403) {
+                        alert("E-mail ou senha inválidos.");
+                    } else {
+                        alert("Não foi possível entrar. Tente novamente.");
+                    }
+
+                    return;
+                }
+
+                const dados = await resposta.json();
+
+                localStorage.setItem("ID_USUARIO", dados.id);
+                localStorage.setItem("NOME_USUARIO", dados.nome);
+                localStorage.setItem("EMAIL_USUARIO", dados.email);
+                localStorage.setItem("EMPRESA_ID", dados.empresaId);
+                localStorage.setItem("ROLE_USUARIO", dados.role);
+
+                window.location.href = "index.html";
+            } catch (erro) {
+                console.error("Erro ao entrar:", erro);
+                alert("Não foi possível conectar ao servidor. Tente novamente.");
+            } finally {
+                botao.disabled = false;
+                botao.textContent = "Entrar";
+            }
+        });
+    </script>
+</body>
+
+</html>

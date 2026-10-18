@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Criar conta — ScoreInvest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="img/logo-scoreinvest.png">
+    <link rel="stylesheet" href="styleAuth.css">
+
+    <script src="theme.js"></script>
+</head>
+
+<body id="body-cadastro-login">
+    <div>
+        <main class="card-cadastro-login">
+            <a href="index.html">← Voltar ao site</a>
+
+            <h1>Criar conta</h1>
+            <p class="sub">Preencha seus dados para se cadastrar.</p>
+
+            <form id="form-cadastro">
+                <div class="field">
+                    <label for="ipt_nome">Seu nome</label>
+                    <input
+                        type="text"
+                        id="ipt_nome"
+                        name="nome"
+                        placeholder="Seu nome completo"
+                        autocomplete="name"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="ipt_empresa">Nome da empresa</label>
+                    <input
+                        type="text"
+                        id="ipt_empresa"
+                        name="empresa"
+                        placeholder="Sua empresa"
+                        autocomplete="organization"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="ipt_email">E-mail</label>
+                    <input
+                        type="email"
+                        id="ipt_email"
+                        name="email"
+                        placeholder="voce@empresa.com"
+                        autocomplete="email"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="ipt_senha">Senha</label>
+                    <input
+                        type="password"
+                        id="ipt_senha"
+                        name="senha"
+                        placeholder="Crie uma senha"
+                        autocomplete="new-password"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="ipt_confirmar">Confirmar senha</label>
+                    <input
+                        type="password"
+                        id="ipt_confirmar"
+                        name="confirmar"
+                        placeholder="Repita sua senha"
+                        autocomplete="new-password"
+                        required>
+                </div>
+
+                <button
+                    type="submit"
+                    id="btn_cadastrar"
+                    class="btn-primary-cadastro-login">
+                    Criar conta
+                </button>
+            </form>
+
+            <div class="switch">
+                Já tem conta?
+                <a href="login.html">Entrar</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const formulario = document.getElementById("form-cadastro");
+        const botao = document.getElementById("btn_cadastrar");
+        const campoSenha = document.getElementById("ipt_senha");
+        const campoConfirmar = document.getElementById("ipt_confirmar");
+
+        function validarConfirmacao() {
+            campoConfirmar.setCustomValidity(
+                campoSenha.value === campoConfirmar.value
+                    ? ""
+                    : "As senhas não coincidem."
+            );
+        }
+
+        campoSenha.addEventListener("input", validarConfirmacao);
+        campoConfirmar.addEventListener("input", validarConfirmacao);
+
+        formulario.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            if (botao.disabled) {
+                return;
+            }
+
+            validarConfirmacao();
+
+            if (!formulario.reportValidity()) {
+                return;
+            }
+
+            const nome = document.getElementById("ipt_nome").value.trim();
+            const empresa = document.getElementById("ipt_empresa").value.trim();
+            const email = document.getElementById("ipt_email").value.trim();
+            const senha = campoSenha.value;
+
+            if (!nome || !empresa || !email) {
+                alert("Preencha todos os campos.");
+                return;
+            }
+
+            botao.disabled = true;
+            botao.textContent = "Cadastrando...";
+
+            try {
+                const resposta = await fetch("/usuarios/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nomeServer: nome,
+                        emailServer: email,
+                        senhaServer: senha,
+                        empresaServer: empresa
+                    })
+                });
+
+                if (!resposta.ok) {
+                    alert("Não foi possível realizar o cadastro. Confira os dados.");
+                    return;
+                }
+
+                alert("Cadastro realizado com sucesso!");
+                window.location.href = "login.html";
+            } catch (erro) {
+                console.error("Erro ao cadastrar:", erro);
+                alert("Não foi possível conectar ao servidor. Tente novamente.");
+            } finally {
+                botao.disabled = false;
+                botao.textContent = "Criar conta";
+            }
+        });
+    </script>
+</body>
+
+</html>
