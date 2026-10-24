@@ -453,3 +453,74 @@ body {
         gap: 4px;
     }
 }
+
+/* Watchlist config*/
+
+.watchlist {
+    background: var(--fundo-card);
+    padding: 22px;
+    margin-top: 25px;
+    border-radius: 5px;
+    border: 1px solid var(--borda);
+    overflow-x: auto;
+}
+
+.watchlist h3 {
+    color: var(--texto);
+    font-size: 17px;
+    margin: 0 0 20px;
+}
+
+.watchlist table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.watchlist th {
+    color: var(--texto-secundario);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 14px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.watchlist td {
+    padding: 16px 14px;
+    font-size: 13px;
+    color: var(--texto);
+    border-bottom: 1px solid var(--borda);
+}
+
+.watchlist tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.watchlist tbody tr:hover {
+    background: #141c1b;
+}
+
+.watchlist .positivo {
+    color: var(--verde-grafico);
+    font-weight: 600;
+}
+
+.watchlist .negativo {
+    color: var(--vermelho);
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .watchlist {
+        padding: 16px 12px;
+    }
+
+    .watchlist table {
+        min-width: 550px;
+    }
+}
+
+[hidden] {
+    display: none !important;
+}

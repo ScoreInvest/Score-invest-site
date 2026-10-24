@@ -252,3 +252,35 @@ new Chart(ctxRosca, {
         }
     }]
 });
+
+/* Watchlist config */
+
+const linksMenu = document.querySelectorAll(
+    '.menu-item[data-pagina]'
+);
+
+const paginaDashboard = document.querySelector(
+    '.pagina-dashboard'
+);
+
+const paginaWatchlist = document.querySelector(
+    '.pagina-watchlist'
+);
+
+linksMenu.forEach(link => {
+    link.addEventListener('click', evento => {
+        evento.preventDefault();
+
+        const paginaSelecionada = link.dataset.pagina;
+
+        paginaDashboard.hidden =
+            paginaSelecionada !== 'dashboard';
+
+        paginaWatchlist.hidden =
+            paginaSelecionada !== 'watchlist';
+
+        linksMenu.forEach(item => {
+            item.classList.toggle('ativo', item === link);
+        });
+    });
+});

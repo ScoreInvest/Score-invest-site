@@ -32,12 +32,12 @@
 
         <aside class="sidebar">
             <nav>
-                <a href="#" class="menu-item ativo">
+                <a href="#" class="menu-item ativo" data-pagina="dashboard">
                     <span class="menu-icone">▦</span>
                     Dashboard
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" data-pagina="watchlist">
                     <span class="menu-icone">↗</span>
                     Ativos
                 </a>
@@ -59,83 +59,167 @@
             </nav>
         </aside>
 
+
         <main class="conteudo">
 
-            <section class="cabecalho-pagina">
-                <div>
-                    <h1>Análise de Ativos</h1>
-                    <p>Seu portfólio, em detalhes.</p>
-                </div>
+            <!-- PÁGINA DASHBOARD -->
+            <div class="pagina-dashboard">
 
-                <div class="data">
-                    <span>▦</span>
-                    <span>18 de outubro de 2026</span>
-                </div>
-            </section>
-
-            <section class="indicadores">
-
-                <div class="card">
-                    <p class="card-titulo">Valor da carteira</p>
-                    <h2>R$ 125.480,32</h2>
-                    <p class="positivo">+8,42% no último mês</p>
-                </div>
-
-                <div class="card">
-                    <p class="card-titulo">Ativos em alta</p>
-                    <h2>12</h2>
-                    <p class="card-descricao">de 18 ações</p>
-                </div>
-
-                <div class="card">
-                    <p class="card-titulo">Ativos em baixa</p>
-                    <h2>6</h2>
-                    <p class="negativo">de 18 ações</p>
-                </div>
-
-                <div class="card">
-                    <p class="card-titulo">Variação mensal</p>
-                    <h2 class="valor-positivo">+8,42%</h2>
-                    <p class="card-descricao">Últimos 30 dias</p>
-                </div>
-
-            </section>
-
-            <section class="graficos">
-
-                <div class="painel desempenho">
-
-                    <div class="painel-cabecalho">
-                        <h3>Desempenho dos Ativos</h3>
-                        <p>Variação percentual nos últimos 30 dias</p>
+                <section class="cabecalho-pagina">
+                    <div>
+                        <h1>Análise de Ativos</h1>
+                        <p>Seu portfólio, em detalhes.</p>
                     </div>
 
-                    <div class="grafico-barras">
-                        <canvas id="graficoBarras"></canvas>
+                    <div class="data">
+                        <span>▦</span>
+                        <span>18 de outubro de 2026</span>
+                    </div>
+                </section>
+
+                <section class="indicadores">
+
+                    <div class="card">
+                        <p class="card-titulo">Valor da carteira</p>
+                        <h2>R$ 125.480,32</h2>
+                        <p class="positivo">+8,42% no último mês</p>
                     </div>
 
-                </div>
-
-                <div class="painel distribuicao">
-
-                    <div class="painel-cabecalho">
-                        <h3>Distribuição da Carteira</h3>
-                        <p>Participação de cada ativo no total investido</p>
+                    <div class="card">
+                        <p class="card-titulo">Ativos em alta</p>
+                        <h2>12</h2>
+                        <p class="card-descricao">de 18 ações</p>
                     </div>
 
-                    <div class="grafico-pizza">
-                        <canvas id="graficoRosca"></canvas>
+                    <div class="card">
+                        <p class="card-titulo">Ativos em baixa</p>
+                        <h2>6</h2>
+                        <p class="negativo">de 18 ações</p>
                     </div>
 
-                    <div class="total-carteira">
-                        <span>Total investido</span>
-                        <strong>R$ 125.480,32</strong>
+                    <div class="card">
+                        <p class="card-titulo">Variação mensal</p>
+                        <h2 class="valor-positivo">+8,42%</h2>
+                        <p class="card-descricao">Últimos 30 dias</p>
                     </div>
 
-                </div>
+                </section>
 
-            </section>
+                <section class="graficos">
+
+                    <div class="painel desempenho">
+                        <div class="painel-cabecalho">
+                            <h3>Desempenho dos Ativos</h3>
+                            <p>Variação percentual nos últimos 30 dias</p>
+                        </div>
+
+                        <div class="grafico-barras">
+                            <canvas id="graficoBarras"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="painel distribuicao">
+                        <div class="painel-cabecalho">
+                            <h3>Distribuição da Carteira</h3>
+                            <p>Participação de cada ativo no total investido</p>
+                        </div>
+
+                        <div class="grafico-pizza">
+                            <canvas id="graficoRosca"></canvas>
+                        </div>
+
+                        <div class="total-carteira">
+                            <span>Total investido</span>
+                            <strong>R$ 125.480,32</strong>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <div class="pagina-watchlist" hidden>
+
+                <section class="watchlist">
+                    <h3>Watchlist de Ativos</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ativo</th>
+                                <th>Variação</th>
+                                <th>Data</th>
+                                <th>Abertura</th>
+                                <th>Fechamento</th>
+                                <th>Máximo</th>
+                                <th>Mínimo</th>
+                                <th>Volume</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Z1TS34</td>
+                                <td class="positivo">+0,68%</td>
+                                <td>28/12/2020</td>
+                                <td>R$ 212,14</td>
+                                <td>R$ 213,59</td>
+                                <td>R$ 215,00</td>
+                                <td>R$ 210,50</td>
+                                <td>1.250.400</td>
+                            </tr>
+
+                            <tr>
+                                <td>VALE3</td>
+                                <td class="negativo">-1,28%</td>
+                                <td>28/12/2020</td>
+                                <td>R$ 61,42</td>
+                                <td>R$ 60,63</td>
+                                <td>R$ 62,30</td>
+                                <td>R$ 60,95</td>
+                                <td>18.450.200</td>
+                            </tr>
+
+                            <tr>
+                                <td>ITUB4</td>
+                                <td class="positivo">+0,86%</td>
+                                <td>28/12/2020</td>
+                                <td>R$ 38,76</td>
+                                <td>R$ 39,09</td>
+                                <td>R$ 39,20</td>
+                                <td>R$ 38,21</td>
+                                <td>22.100.900</td>
+                            </tr>
+
+                            <tr>
+                                <td>WEGE3</td>
+                                <td class="positivo">+1,72%</td>
+                                <td>28/12/2020</td>
+                                <td>R$ 44,18</td>
+                                <td>R$ 44,94</td>
+                                <td>R$ 45,10</td>
+                                <td>R$ 43,51</td>
+                                <td>9.870.300</td>
+                            </tr>
+
+                            <tr>
+                                <td>BBAS3</td>
+                                <td class="negativo">-0,54%</td>
+                                <td>28/12/2020</td>
+                                <td>R$ 24,63</td>
+                                <td>R$ 24,50</td>
+                                <td>R$ 24,98</td>
+                                <td>R$ 24,42</td>
+                                <td>15.340.100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+            </div>
+
         </main>
+
 
     </div>
 
