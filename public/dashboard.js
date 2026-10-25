@@ -253,7 +253,6 @@ new Chart(ctxRosca, {
     }]
 });
 
-<<<<<<< HEAD
 const linksMenu = document.querySelectorAll(
     '.menu-item[data-pagina]'
 );
@@ -454,7 +453,6 @@ if (ctxRelatorioBarras && ctxRelatorioRosca) {
     });
 }
 
-=======
 const botaoPerfil = document.getElementById('botaoPerfil');
 const menuPerfil = document.getElementById('menuPerfil');
 
@@ -485,4 +483,3 @@ formularioCliente.addEventListener('submit', function(event) {
         alert('Código do cliente inválido!');
     }
 });
->>>>>>> a2f1d30 (Atualizando a dashboard)

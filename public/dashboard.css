@@ -454,7 +454,6 @@ body {
     }
 }
 
-<<<<<<< HEAD
 /* Watchlist config*/
 
 .watchlist {
@@ -570,103 +569,10 @@ body {
     color: #08110c;
     font-size: 13px;
     font-weight: 700;
-=======
-/* Perfil do analista */
-
-.usuario {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--texto-secundario);
-    font-size: 13px;
-}
-
-.perfil-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.perfil-icone {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border: 1px solid transparent;
-    border-radius: 50%;
-    background-color: #dce8df;
-    color: #172c20;
-
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-
-    transition: border-color 0.2s, background-color 0.2s;
-}
-
-.perfil-icone:hover,
-.perfil-icone[aria-expanded="true"] {
-    border-color: var(--verde);
-    background-color: #c8dfce;
-}
-
-.perfil-icone:focus-visible,
-.opcao-perfil:focus-visible,
-.botao-acessar:focus-visible {
-    outline: 2px solid var(--verde);
-    outline-offset: 3px;
-}
-
-/* Menu Perfil */
-
-.menu-perfil {
-    position: absolute;
-    top: calc(100% + 12px);
-    right: 0;
-    z-index: 1000;
-
-    width: 260px;
-    padding: 7px;
-
-    background-color: var(--fundo-card);
-    border: 1px solid var(--borda);
-    border-radius: 6px;
-
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-.menu-perfil[hidden],
-.formulario-cliente[hidden] {
-    display: none;
-}
-
-.opcao-perfil {
-    width: 100%;
-    min-height: 42px;
-    padding: 10px 12px;
-
-    display: flex;
-    align-items: center;
-    gap: 11px;
-
-    border: none;
-    border-radius: 4px;
-    background: transparent;
-
-    color: var(--texto);
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    text-align: left;
-    text-decoration: none;
-
->>>>>>> a2f1d30 (Atualizando a dashboard)
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-<<<<<<< HEAD
 .btn-exportar:hover {
     background-color: #63ce78;
 }
@@ -890,7 +796,101 @@ body {
         flex-direction: column;
     }
 }
-=======
+
+/* Perfil do analista */
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+.perfil-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.perfil-icone {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: #dce8df;
+    color: #172c20;
+
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.perfil-icone:hover,
+.perfil-icone[aria-expanded="true"] {
+    border-color: var(--verde);
+    background-color: #c8dfce;
+}
+
+.perfil-icone:focus-visible,
+.opcao-perfil:focus-visible,
+.botao-acessar:focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: 3px;
+}
+
+/* Menu Perfil */
+
+.menu-perfil {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 1000;
+
+    width: 260px;
+    padding: 7px;
+
+    background-color: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.menu-perfil[hidden],
+.formulario-cliente[hidden] {
+    display: none;
+}
+
+.opcao-perfil {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+
+    color: var(--texto);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-align: left;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
 .opcao-perfil:hover {
     background-color: #192321;
 }
@@ -973,5 +973,3 @@ body {
         width: 240px;
     }
 }
-
->>>>>>> a2f1d30 (Atualizando a dashboard)
