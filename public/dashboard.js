@@ -253,6 +253,7 @@ new Chart(ctxRosca, {
     }]
 });
 
+<<<<<<< HEAD
 const linksMenu = document.querySelectorAll(
     '.menu-item[data-pagina]'
 );
@@ -453,3 +454,35 @@ if (ctxRelatorioBarras && ctxRelatorioRosca) {
     });
 }
 
+=======
+const botaoPerfil = document.getElementById('botaoPerfil');
+const menuPerfil = document.getElementById('menuPerfil');
+
+const botaoCodigoCliente = document.getElementById('botaoCodigoCliente');
+const formularioCliente = document.getElementById('formularioCliente');
+
+// Abre e fecha o menu do perfil
+botaoPerfil.addEventListener('click', function() {
+    menuPerfil.hidden = !menuPerfil.hidden;
+});
+
+// Abre e fecha o formulário do código
+botaoCodigoCliente.addEventListener('click', function() {
+    formularioCliente.hidden = !formularioCliente.hidden;
+});
+
+// Acessa a dashboard do cliente
+formularioCliente.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const codigo = document.getElementById('codigoCliente').value.trim();
+
+    if (codigo === '001') {
+        window.location.href = 'dashboard-cliente-1.html';
+    } else if (codigo === '002') {
+        window.location.href = 'dashboard-cliente-2.html';
+    } else {
+        alert('Código do cliente inválido!');
+    }
+});
+>>>>>>> a2f1d30 (Atualizando a dashboard)
