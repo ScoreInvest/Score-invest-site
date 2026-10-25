@@ -253,8 +253,6 @@ new Chart(ctxRosca, {
     }]
 });
 
-/* Watchlist config */
-
 const linksMenu = document.querySelectorAll(
     '.menu-item[data-pagina]'
 );
@@ -266,6 +264,42 @@ const paginaDashboard = document.querySelector(
 const paginaWatchlist = document.querySelector(
     '.pagina-watchlist'
 );
+
+const paginaRelatorios = document.querySelector(
+    '.pagina-relatorios'
+);
+
+linksMenu.forEach(link => {
+    link.addEventListener('click', evento => {
+        evento.preventDefault();
+
+        const paginaSelecionada = link.dataset.pagina;
+
+        paginaDashboard.hidden =
+            paginaSelecionada !== 'dashboard';
+
+        paginaWatchlist.hidden =
+            paginaSelecionada !== 'watchlist';
+
+        paginaRelatorios.hidden =
+            paginaSelecionada !== 'relatorios';
+
+        linksMenu.forEach(item => {
+            item.classList.toggle(
+                'ativo',
+                item === link
+            );
+        });
+
+        if (paginaSelecionada === 'relatorios') {
+            requestAnimationFrame(() => {
+                Chart.getChart('relatorioGraficoBarras')?.resize();
+                Chart.getChart('relatorioGraficoRosca')?.resize();
+            });
+        }
+    });
+});
+
 
 linksMenu.forEach(link => {
     link.addEventListener('click', evento => {
@@ -284,3 +318,138 @@ linksMenu.forEach(link => {
         });
     });
 });
+
+const ctxRelatorioBarras = document.getElementById(
+    'relatorioGraficoBarras'
+);
+
+const ctxRelatorioRosca = document.getElementById(
+    'relatorioGraficoRosca'
+);
+
+if (ctxRelatorioBarras && ctxRelatorioRosca) {
+
+    new Chart(ctxRelatorioBarras, {
+        type: 'bar',
+
+        data: {
+            labels: nomesAtivos,
+
+            datasets: [{
+                label: 'Variação nos últimos 30 dias',
+                data: variacoes,
+
+                backgroundColor: function(context) {
+                    return context.raw >= 0
+                        ? '#20b875'
+                        : '#e65360';
+                },
+
+                borderRadius: 2,
+                borderSkipped: false
+            }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#52605a',
+                        maxRotation: 45,
+                        minRotation: 45,
+                        font: {
+                            size: 9
+                        }
+                    },
+
+                    grid: {
+                        display: false
+                    }
+                },
+
+                y: {
+                    min: -10,
+                    max: 15,
+
+                    ticks: {
+                        color: '#52605a',
+
+                        callback: function(valor) {
+                            return valor + '%';
+                        }
+                    },
+
+                    grid: {
+                        color: '#e2e8e5'
+                    }
+                }
+            }
+        }
+    });
+
+    new Chart(ctxRelatorioRosca, {
+        type: 'doughnut',
+
+        data: {
+            labels: [
+                'PETR4',
+                'VALE3',
+                'ITUB4',
+                'BBAS3',
+                'WEGE3',
+                'ABEV3',
+                'Outros'
+            ],
+
+            datasets: [{
+                data: [
+                    24.78,
+                    18.00,
+                    12.00,
+                    10.00,
+                    8.00,
+                    7.22,
+                    20.00
+                ],
+
+                backgroundColor: coresAtivos,
+                borderWidth: 2,
+                borderColor: '#ffffff'
+            }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '48%',
+
+            plugins: {
+                legend: {
+                    position: 'right',
+
+                    labels: {
+                        color: '#52605a',
+                        padding: 10,
+                        boxWidth: 9,
+                        boxHeight: 9,
+                        usePointStyle: true,
+
+                        font: {
+                            size: 10
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+

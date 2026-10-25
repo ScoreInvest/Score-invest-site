@@ -47,7 +47,7 @@
                     Carteira
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" data-pagina="relatorios">
                     <span class="menu-icone">▥</span>
                     Relatórios
                 </a>
@@ -148,7 +148,7 @@
                             <tr>
                                 <th>Ativo</th>
                                 <th>Variação</th>
-                                <th>Data</th>
+                                <th>Data </th>
                                 <th>Abertura</th>
                                 <th>Fechamento</th>
                                 <th>Máximo</th>
@@ -217,6 +217,96 @@
                 </section>
 
             </div>
+
+            <div class="pagina-relatorios" hidden>
+
+                <section class="cabecalho-pagina">
+                    <div>
+                        <h1>Relatórios</h1>
+                        <p>Visualize seu relatório antes de exportar.</p>
+                    </div>
+                </section>
+
+                <section class="area-relatorio">
+
+                    <div class="relatorio-acoes">
+                        <span>Pré-visualização do documento</span>
+
+                        <button type="button" class="btn-exportar">
+                            Exportar PDF
+                        </button>
+                    </div>
+
+                    <!-- Folha A4 -->
+                    <article class="folha-a4">
+
+                        <header class="relatorio-cabecalho">
+                            <div class="relatorio-logo">
+                                <img src="img/logo-scoreinvest.png" alt="Logo ScoreInvest">
+
+                                <h2>Score<span>Invest</span></h2>
+                            </div>
+
+                            <div class="relatorio-informacoes">
+                                <h1>Relatório de Análise de Ativos</h1>
+                                <p>Desempenho e distribuição da carteira</p>
+                                <p>Data: 18 de outubro de 2026</p>
+                            </div>
+                        </header>
+
+                        <section class="relatorio-resumo">
+                            <h2>Resumo da carteira</h2>
+
+                            <div class="relatorio-indicadores">
+
+                                <div class="relatorio-card">
+                                    <span>Valor da carteira</span>
+                                    <strong>R$ 125.480,32</strong>
+                                </div>
+
+                                <div class="relatorio-card">
+                                    <span>Ativos em alta</span>
+                                    <strong>12</strong>
+                                </div>
+
+                                <div class="relatorio-card">
+                                    <span>Ativos em baixa</span>
+                                    <strong>6</strong>
+                                </div>
+
+                                <div class="relatorio-card">
+                                    <span>Variação mensal</span>
+                                    <strong class="positivo">+8,42%</strong>
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <section class="relatorio-graficos">
+                            <h2>Desempenho dos ativos</h2>
+
+                            <div class="relatorio-grafico">
+                                <canvas id="relatorioGraficoBarras"></canvas>
+                            </div>
+
+                            <h2>Distribuição da carteira</h2>
+
+                            <div class="relatorio-grafico relatorio-grafico-rosca">
+                                <canvas id="relatorioGraficoRosca"></canvas>
+                            </div>
+                        </section>
+
+                        <footer class="relatorio-rodape">
+                            <span>ScoreInvest — Relatório de análise financeira</span>
+                            <span>Página 1</span>
+                        </footer>
+
+                    </article>
+
+                </section>
+
+            </div>
+
 
         </main>
 
