@@ -39,21 +39,20 @@ body {
     color: var(--text);
     line-height: 1.5;
 }
-
 #body-cadastro-login {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
     min-height: 100svh;
-    padding: 32px 20px;
+    padding: 0;
 }
 
 #body-cadastro-login > div {
-    width: 100%;
-    max-width: 400px;
+    width: min(100% - 40px, 400px);
+    margin: auto;
+    padding-block: 32px;
 }
-
 /* Formulário */
 
 .card-cadastro-login {

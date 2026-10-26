@@ -9,11 +9,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="contato.css">
     <link rel="icon" href="img/logo-scoreinvest.png">
 
     <script src="theme.js"></script>
@@ -34,33 +33,16 @@
             </div>
 
             <div class="nav-actions">
-                <button
-                    type="button"
-                    id="themeToggle"
-                    class="theme-switch"
-                    role="switch"
-                    aria-checked="true"
-                    aria-label="Modo escuro"
-                    title="Mudar para modo claro">
+                <button type="button" id="themeToggle" class="theme-switch" role="switch" aria-checked="true"
+                    aria-label="Modo escuro" title="Mudar para modo claro">
 
                     <span class="thumb">
-                        <svg
-                            class="icon-moon"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true">
-                            <path
-                                d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
                         </svg>
 
-                        <svg
-                            class="icon-sun"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            aria-hidden="true">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" aria-hidden="true">
                             <circle cx="12" cy="12" r="4" />
                             <path
                                 d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
@@ -221,8 +203,8 @@
                     </article>
                 </div>
             </div>
-        </section>
 
+        </section>
         <section id="equipe">
             <div class="wrap">
                 <div class="section-heading">
@@ -275,6 +257,70 @@
                 </div>
             </div>
         </section>
+        <section class="contato" id="contato">
+            <h2 class="contato-titulo">Contato</h2>
+
+            <div class="contato-conteudo">
+
+                <div class="contato-info">
+                    <h3>Entre em contato conosco</h3>
+                    <p class="contato-texto">
+                        Estamos prontos para ajudar você a proteger seu investimento e garantir a qualidade dos seus
+                        produtos.
+                    </p>
+
+                    <ul class="contato-lista">
+                        <li class="contato-item">
+                            <span class="contato-icone" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                    <path
+                                        d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>TELEFONE</strong>
+                                <span>(11) 94219-9999</span>
+                            </div>
+                        </li>
+
+                        <li class="contato-item">
+                            <span class="contato-icone" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                    <path
+                                        d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5z" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>E-MAIL</strong>
+                                <span>scoreinvest@sptech.school</span>
+                            </div>
+                        </li>
+
+                        <li class="contato-item">
+                            <span class="contato-icone" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                    <path
+                                        d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>ENDEREÇO</strong>
+                                <span>São Paulo, SP - Brasil</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <form class="contato-form" id="formContato">
+                    <input type="text" name="nome" placeholder="Nome" aria-label="Nome" required>
+                    <input type="email" name="email" placeholder="E-mail" aria-label="E-mail" required>
+                    <input type="tel" name="telefone" placeholder="Telefone" aria-label="Telefone">
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+
+            </div>
+        </section>
+
     </main>
 
     <footer>

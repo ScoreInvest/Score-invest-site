@@ -1,5 +1,5 @@
 :root {
-    -bg: #08090b;
+    --bg: #08090b;
     --surface: #111215;
     --surface-2: #1b1d21;
     --border: #2a2d32;
