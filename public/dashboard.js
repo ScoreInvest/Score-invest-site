@@ -16,11 +16,7 @@ const nomesAtivos = [
     'ITUB4',
     'BBAS3',
     'WEGE3',
-    'ABEV3',
     'BBDC4',
-    'B3SA3',
-    'RENT3',
-    'EQTL3',
     'SUZB3',
     'PRIO3',
     'RADL3',
@@ -28,29 +24,23 @@ const nomesAtivos = [
     'CPLE6',
     'EGIE3',
     'MGLU3',
-    'CSNA3'
 ];
 
 
 const variacoes = [
     12.6,
     8.9,
+    6.8,
     6.3,
     4.8,
     3.7,
-    2.9,
-    2.5,
-    7.2,
-    5.4,
-    4.1,
-    6.8,
-    3.2,
+    2.7,
+    2.2,
     -2.7,
+    -3.2,
     -4.1,
     -6.8,
     -8.5,
-    -3.2,
-    -5.4
 ];
 
 // Gráfico de barras: desempenho dos ativos

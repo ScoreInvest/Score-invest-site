@@ -65,7 +65,7 @@
             <nav>
                 <a href="dashboard.html" class="menu-item ativo" data-pagina="dashboard">
                     <span class="menu-icone">▦</span>
-                    Dashboard
+                    Análise de Ativos
                 </a>
 
                 <a href="#" class="menu-item" data-pagina="watchlist">
@@ -113,20 +113,20 @@
 
                     <div class="card">
                         <p class="card-titulo">Ativos em alta</p>
-                        <h2>12</h2>
-                        <p class="card-descricao">de 18 ações</p>
+                        <h2>8</h2>
+                        <p class="positivo">de 13 ações</p>
                     </div>
 
                     <div class="card">
                         <p class="card-titulo">Ativos em baixa</p>
-                        <h2>6</h2>
-                        <p class="negativo">de 18 ações</p>
+                        <h2>5</h2>
+                        <p class="negativo">de 13 ações</p>
                     </div>
 
                     <div class="card">
-                        <p class="card-titulo">Variação mensal</p>
-                        <h2 class="valor-positivo">+8,42%</h2>
-                        <p class="card-descricao">Últimos 30 dias</p>
+                        <p class="card-titulo">Ativos próximos da mínima</p>
+                        <h2>2</h2>
+                        <p class="negativo">Nos último 30 dias</p>
                     </div>
 
                 </section>
@@ -185,42 +185,42 @@
 
                         <tbody>
                             <tr>
-                                <td>Z1TS34</td>
-                                <td class="positivo">+0,68%</td>
-                                <td>28/12/2020</td>
-                                <td>R$ 212,14</td>
-                                <td>R$ 213,59</td>
-                                <td>R$ 215,00</td>
-                                <td>R$ 210,50</td>
-                                <td>1.250.400</td>
+                                <td>ENEV3</td>
+                                <td class="positivo">+5,18%</td>
+                                <td>30/12/2020</td>
+                                <td>R$ 59,33</td>
+                                <td>R$ 62,10</td>
+                                <td>R$ 63,06</td>
+                                <td>R$ 59,13</td>
+                                <td>766.884.400</td>
                             </tr>
 
                             <tr>
-                                <td>VALE3</td>
-                                <td class="negativo">-1,28%</td>
-                                <td>28/12/2020</td>
-                                <td>R$ 61,42</td>
-                                <td>R$ 60,63</td>
-                                <td>R$ 62,30</td>
-                                <td>R$ 60,95</td>
-                                <td>18.450.200</td>
+                                <td>LCAM3</td>
+                                <td class="positivo">+3,39%</td>
+                                <td>30/12/2020</td>
+                                <td>R$ 28,28</td>
+                                <td>R$ 29,31</td>
+                                <td>R$ 29,55</td>
+                                <td>R$ 28,28</td>
+                                <td>428.261.100</td>
                             </tr>
 
                             <tr>
-                                <td>ITUB4</td>
-                                <td class="positivo">+0,86%</td>
-                                <td>28/12/2020</td>
-                                <td>R$ 38,76</td>
-                                <td>R$ 39,09</td>
-                                <td>R$ 39,20</td>
-                                <td>R$ 38,21</td>
-                                <td>22.100.900</td>
+                                <td>CPLE6</td>
+                                <td class="positivo">+3,00%</td>
+                                <td>30/12/2020</td>
+                                <td>R$ 67,50</td>
+                                <td>R$ 68,95</td>
+                                <td>R$ 69,29</td>
+                                <td>R$ 67,36</td>
+                                <td>350.478.000</td>
                             </tr>
 
                             <tr>
-                                <td>WEGE3</td>
-                                <td class="positivo">+1,72%</td>
-                                <td>28/12/2020</td>
+                                <td>RENT3</td>
+                                <td class="positivo">+2,82%</td>
+                                <td>30/12/2020</td>
                                 <td>R$ 44,18</td>
                                 <td>R$ 44,94</td>
                                 <td>R$ 45,10</td>
@@ -229,14 +229,14 @@
                             </tr>
 
                             <tr>
-                                <td>BBAS3</td>
-                                <td class="negativo">-0,54%</td>
-                                <td>28/12/2020</td>
-                                <td>R$ 24,63</td>
-                                <td>R$ 24,50</td>
-                                <td>R$ 24,98</td>
-                                <td>R$ 24,42</td>
-                                <td>15.340.100</td>
+                                <td>NTCO3</td>
+                                <td class="positivo">+1,08%</td>
+                                <td>30/12/2020</td>
+                                <td>R$ 51,92</td>
+                                <td>R$ 52,50</td>
+                                <td>R$ 53,27</td>
+                                <td>R$ 51,89</td>
+                                <td>362.646.000</td>
                             </tr>
                         </tbody>
                     </table>
@@ -245,7 +245,7 @@
             </div>
 
             <!-- PÁGINA CARTEIRA -->
-             <div class="pagina-carteira">
+            <div class="pagina-carteira" hidden>
                 <section class="carteira">
                     <header class="cabecalho-pagina">
                         <div>
@@ -253,8 +253,7 @@
                             <p>Acompanhe o desempenho detalhado dos seus investimentos.</p>
                         </div>
                         <div class="data">
-                            <span>📅</span>
-                            <span>28 de Dezembro de 2020</span>
+                            <span>18 de outubro de 2020</span>
                         </div>
                     </header>
 
@@ -262,66 +261,138 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th scope="col">Ativo</th>
-                                    <th scope="col">Variação</th>
-                                    <th scope="col">Data</th>
-                                    <th scope="col">Abertura</th>
-                                    <th scope="col">Fechamento</th>
-                                    <th scope="col">Máximo</th>
-                                    <th scope="col">Mínimo</th>
-                                    <th scope="col">Volume</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Z1TS34</td>
-                                    <td class="positivo">+0,68%</td>
-                                    <td>28/12/2020</td>
-                                    <td>R$ 212,14</td>
-                                    <td>R$ 213,59</td>
-                                    <td>R$ 215,00</td>
-                                    <td>R$ 210,50</td>
-                                    <td>1.250.400</td>
+                                    <td>PETR4</td>
+                                    <td class="positivo">+12,5%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 28,35</td>
+                                    <td>R$ 28,34</td>
+                                    <td>R$ 28,49</td>
+                                    <td>R$ 28,20</td>
+                                    <td>1.047.992.204</td>
                                 </tr>
                                 <tr>
                                     <td>VALE3</td>
-                                    <td class="negativo">-1,28%</td>
-                                    <td>28/12/2020</td>
-                                    <td>R$ 61,42</td>
-                                    <td>R$ 60,63</td>
-                                    <td>R$ 62,30</td>
-                                    <td>R$ 60,95</td>
-                                    <td>18.450.200</td>
+                                    <td class="positivo">+8,8%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 87,19</td>
+                                    <td>R$ 87,45</td>
+                                    <td>R$ 87,59</td>
+                                    <td>R$ 86,65</td>
+                                    <td>2.629.354.918</td>
                                 </tr>
                                 <tr>
                                     <td>ITUB4</td>
-                                    <td class="positivo">+0,86%</td>
-                                    <td>28/12/2020</td>
-                                    <td>R$ 38,76</td>
-                                    <td>R$ 39,09</td>
-                                    <td>R$ 39,20</td>
-                                    <td>R$ 38,21</td>
-                                    <td>22.100.900</td>
-                                </tr>
-                                <tr>
-                                    <td>WEGE3</td>
-                                    <td class="positivo">+1,72%</td>
-                                    <td>28/12/2020</td>
-                                    <td>R$ 44,18</td>
-                                    <td>R$ 44,94</td>
-                                    <td>R$ 45,10</td>
-                                    <td>R$ 43,51</td>
-                                    <td>9.870.300</td>
+                                    <td class="positivo">+6,7%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 32,20</td>
+                                    <td>R$ 31,63</td>
+                                    <td>R$ 32,33</td>
+                                    <td>R$ 31,63</td>
+                                    <td>816.211.680</td>
                                 </tr>
                                 <tr>
                                     <td>BBAS3</td>
-                                    <td class="negativo">-0,54%</td>
-                                    <td>28/12/2020</td>
-                                    <td>R$ 24,63</td>
-                                    <td>R$ 24,50</td>
-                                    <td>R$ 24,98</td>
-                                    <td>R$ 24,42</td>
-                                    <td>15.340.100</td>
+                                    <td class="positivo">+6,2%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 39,28</td>
+                                    <td>R$ 38,80</td>
+                                    <td>R$ 39,35</td>
+                                    <td>R$ 38,66</td>
+                                    <td>334.537.451</td>
+                                </tr>
+                                <tr>
+                                    <td>WEGE3</td>
+                                    <td class="positivo">+4,7%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 75,37</td>
+                                    <td>R$ 75,74</td>
+                                    <td>R$ 76,65</td>
+                                    <td>R$ 75,24</td>
+                                    <td>469.765.718</td>
+                                </tr>
+                                <tr>
+                                    <td>BBDC4</td>
+                                    <td class="positivo">+3,6%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 27,63</td>
+                                    <td>R$ 27,14</td>
+                                    <td>R$ 27,74</td>
+                                    <td>R$ 27,14</td>
+                                    <td>602.787.161</td>
+                                </tr>
+                                <tr>
+                                    <td>SUZB3</td>
+                                    <td class="positivo">+2,6%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 57,80</td>
+                                    <td>R$ 58,54</td>
+                                    <td>R$ 59,10</td>
+                                    <td>R$ 57,43</td>
+                                    <td>288.824.967</td>
+                                </tr>
+                                <tr>
+                                    <td>PRIO3</td>
+                                    <td class="positivo">+2,1%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 68,72</td>
+                                    <td>R$ 70,19</td>
+                                    <td>R$ 70,23</td>
+                                    <td>R$ 67,82</td>
+                                    <td>297.172.754</td>
+                                </tr>
+                                <tr>
+                                    <td>RADL3</td>
+                                    <td class="negativo">-2,7%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 25,42</td>
+                                    <td>R$ 25,04</td>
+                                    <td>R$ 25,62</td>
+                                    <td>R$ 25,04</td>
+                                    <td>95.715.439</td>
+                                </tr>
+
+                                <tr>
+                                    <td>MGLU3</td>
+                                    <td class="negativo">-3,2%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 25,37</td>
+                                    <td>R$ 24,95</td>
+                                    <td>R$ 25,66</td>
+                                    <td>R$ 24,95</td>
+                                    <td>484.317.368</td>
+                                </tr>
+
+                                <tr>
+                                    <td>VIVT3</td>
+                                    <td class="negativo">-4,1%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 45,20</td>
+                                    <td>R$ 46,50</td>
+                                    <td>R$ 46,50</td>
+                                    <td>R$ 45,19</td>
+                                    <td>184.732.077</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>CPLE6</td>
+                                    <td class="negativo">-6,8%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 72,76</td>
+                                    <td>R$ 74,94</td>
+                                    <td>R$ 74,94</td>
+                                    <td>R$ 72,76</td>
+                                    <td>412.477.307</td>
+                                </tr>
+
+                                <tr>
+                                    <td>EGIE3</td>
+                                    <td class="negativo">-8,5%</td>
+                                    <td>30/12/2020</td>
+                                    <td>R$ 44,57</td>
+                                    <td>R$ 43,94</td>
+                                    <td>R$ 44,78</td>
+                                    <td>R$ 43,94</td>
+                                    <td>63.975.377</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -361,7 +432,7 @@
                             <div class="relatorio-informacoes">
                                 <h1>Relatório de Análise de Ativos</h1>
                                 <p>Desempenho e distribuição da carteira</p>
-                                <p>Data: 18 de outubro de 2026</p>
+                                <p>Data: 15 de outubro de 2026</p>
                             </div>
                         </header>
 
@@ -377,17 +448,17 @@
 
                                 <div class="relatorio-card">
                                     <span>Ativos em alta</span>
-                                    <strong>12</strong>
+                                    <strong class="positivo">8</strong>
                                 </div>
 
                                 <div class="relatorio-card">
                                     <span>Ativos em baixa</span>
-                                    <strong>6</strong>
+                                    <strong class="negativo">5</strong>
                                 </div>
 
                                 <div class="relatorio-card">
-                                    <span>Variação mensal</span>
-                                    <strong class="positivo">+8,42%</strong>
+                                    <span>Ativos perto da mínima</span>
+                                    <strong class="negativo">2</strong>
                                 </div>
 
                             </div>
