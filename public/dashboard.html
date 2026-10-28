@@ -63,7 +63,7 @@
 
         <aside class="sidebar">
             <nav>
-                <a href="#" class="menu-item ativo" data-pagina="dashboard">
+                <a href="dashboard.html" class="menu-item ativo" data-pagina="dashboard">
                     <span class="menu-icone">▦</span>
                     Dashboard
                 </a>
@@ -73,7 +73,7 @@
                     Ativos
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" data-pagina="carteira">
                     <span class="menu-icone">▤</span>
                     Carteira
                 </a>
@@ -242,6 +242,91 @@
                     </table>
                 </section>
 
+            </div>
+
+            <!-- PÁGINA CARTEIRA -->
+             <div class="pagina-carteira">
+                <section class="carteira">
+                    <header class="cabecalho-pagina">
+                        <div>
+                            <h1>Sua Carteira de Ativos</h1>
+                            <p>Acompanhe o desempenho detalhado dos seus investimentos.</p>
+                        </div>
+                        <div class="data">
+                            <span>📅</span>
+                            <span>28 de Dezembro de 2020</span>
+                        </div>
+                    </header>
+
+                    <div class="tabela-responsiva">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ativo</th>
+                                    <th scope="col">Variação</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Abertura</th>
+                                    <th scope="col">Fechamento</th>
+                                    <th scope="col">Máximo</th>
+                                    <th scope="col">Mínimo</th>
+                                    <th scope="col">Volume</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Z1TS34</td>
+                                    <td class="positivo">+0,68%</td>
+                                    <td>28/12/2020</td>
+                                    <td>R$ 212,14</td>
+                                    <td>R$ 213,59</td>
+                                    <td>R$ 215,00</td>
+                                    <td>R$ 210,50</td>
+                                    <td>1.250.400</td>
+                                </tr>
+                                <tr>
+                                    <td>VALE3</td>
+                                    <td class="negativo">-1,28%</td>
+                                    <td>28/12/2020</td>
+                                    <td>R$ 61,42</td>
+                                    <td>R$ 60,63</td>
+                                    <td>R$ 62,30</td>
+                                    <td>R$ 60,95</td>
+                                    <td>18.450.200</td>
+                                </tr>
+                                <tr>
+                                    <td>ITUB4</td>
+                                    <td class="positivo">+0,86%</td>
+                                    <td>28/12/2020</td>
+                                    <td>R$ 38,76</td>
+                                    <td>R$ 39,09</td>
+                                    <td>R$ 39,20</td>
+                                    <td>R$ 38,21</td>
+                                    <td>22.100.900</td>
+                                </tr>
+                                <tr>
+                                    <td>WEGE3</td>
+                                    <td class="positivo">+1,72%</td>
+                                    <td>28/12/2020</td>
+                                    <td>R$ 44,18</td>
+                                    <td>R$ 44,94</td>
+                                    <td>R$ 45,10</td>
+                                    <td>R$ 43,51</td>
+                                    <td>9.870.300</td>
+                                </tr>
+                                <tr>
+                                    <td>BBAS3</td>
+                                    <td class="negativo">-0,54%</td>
+                                    <td>28/12/2020</td>
+                                    <td>R$ 24,63</td>
+                                    <td>R$ 24,50</td>
+                                    <td>R$ 24,98</td>
+                                    <td>R$ 24,42</td>
+                                    <td>15.340.100</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </div>
 
             <div class="pagina-relatorios" hidden>

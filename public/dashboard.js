@@ -67,7 +67,7 @@ new Chart(ctxBarras, {
             label: 'Variação nos últimos 30 dias',
             data: variacoes,
 
-            backgroundColor: function(context) {
+            backgroundColor: function (context) {
                 return context.raw >= 0
                     ? '#20b875'
                     : '#e65360';
@@ -91,7 +91,7 @@ new Chart(ctxBarras, {
 
             tooltip: {
                 callbacks: {
-                    label: function(context) {
+                    label: function (context) {
                         const valor = context.raw;
 
                         return 'Variação: ' +
@@ -134,7 +134,7 @@ new Chart(ctxBarras, {
                     stepSize: 5,
                     color: '#a0aaa8',
 
-                    callback: function(valor) {
+                    callback: function (valor) {
                         return valor + '%';
                     }
                 },
@@ -213,7 +213,7 @@ new Chart(ctxRosca, {
 
             tooltip: {
                 callbacks: {
-                    label: function(context) {
+                    label: function (context) {
                         return context.label + ': ' +
                             context.raw.toLocaleString('pt-BR', {
                                 minimumFractionDigits: 2,
@@ -228,10 +228,10 @@ new Chart(ctxRosca, {
     plugins: [{
         id: 'rotulosRosca',
 
-        afterDatasetsDraw: function(chart) {
+        afterDatasetsDraw: function (chart) {
             const ctx = chart.ctx;
 
-            chart.getDatasetMeta(0).data.forEach(function(arco, i) {
+            chart.getDatasetMeta(0).data.forEach(function (arco, i) {
                 const valor = chart.data.datasets[0].data[i];
                 const posicao = arco.tooltipPosition();
 
@@ -268,9 +268,19 @@ const paginaWatchlist = document.querySelector(
 const paginaRelatorios = document.querySelector(
     '.pagina-relatorios'
 );
+const paginaCarteira = document.querySelector(
+    '.pagina-carteira'
+);
 
 linksMenu.forEach(link => {
     link.addEventListener('click', evento => {
+
+
+        if (link.dataset.pagina === 'carteira') {
+            return;
+        }
+
+       
         evento.preventDefault();
 
         const paginaSelecionada = link.dataset.pagina;
@@ -283,6 +293,12 @@ linksMenu.forEach(link => {
 
         paginaRelatorios.hidden =
             paginaSelecionada !== 'relatorios';
+
+        if (paginaCarteira) {
+            paginaCarteira.hidden =
+                paginaSelecionada !== 'carteira';
+        }
+
 
         linksMenu.forEach(item => {
             item.classList.toggle(
@@ -301,23 +317,23 @@ linksMenu.forEach(link => {
 });
 
 
-linksMenu.forEach(link => {
-    link.addEventListener('click', evento => {
-        evento.preventDefault();
+const parametrosURL = new URLSearchParams(window.location.search);
+const paginaInicial = parametrosURL.get('pagina');
 
-        const paginaSelecionada = link.dataset.pagina;
+if (paginaInicial === 'watchlist' || paginaInicial === 'relatorios') {
+    paginaDashboard.hidden = true;
+    paginaWatchlist.hidden = paginaInicial !== 'watchlist';
+    paginaRelatorios.hidden = paginaInicial !== 'relatorios';
 
-        paginaDashboard.hidden =
-            paginaSelecionada !== 'dashboard';
-
-        paginaWatchlist.hidden =
-            paginaSelecionada !== 'watchlist';
-
-        linksMenu.forEach(item => {
-            item.classList.toggle('ativo', item === link);
-        });
+    linksMenu.forEach(item => {
+        item.classList.toggle(
+            'ativo',
+            item.dataset.pagina === paginaInicial
+        );
     });
-});
+}
+
+
 
 const ctxRelatorioBarras = document.getElementById(
     'relatorioGraficoBarras'
@@ -339,7 +355,7 @@ if (ctxRelatorioBarras && ctxRelatorioRosca) {
                 label: 'Variação nos últimos 30 dias',
                 data: variacoes,
 
-                backgroundColor: function(context) {
+                backgroundColor: function (context) {
                     return context.raw >= 0
                         ? '#20b875'
                         : '#e65360';
@@ -383,7 +399,7 @@ if (ctxRelatorioBarras && ctxRelatorioRosca) {
                     ticks: {
                         color: '#52605a',
 
-                        callback: function(valor) {
+                        callback: function (valor) {
                             return valor + '%';
                         }
                     },
@@ -460,17 +476,17 @@ const botaoCodigoCliente = document.getElementById('botaoCodigoCliente');
 const formularioCliente = document.getElementById('formularioCliente');
 
 // Abre e fecha o menu do perfil
-botaoPerfil.addEventListener('click', function() {
+botaoPerfil.addEventListener('click', function () {
     menuPerfil.hidden = !menuPerfil.hidden;
 });
 
 // Abre e fecha o formulário do código
-botaoCodigoCliente.addEventListener('click', function() {
+botaoCodigoCliente.addEventListener('click', function () {
     formularioCliente.hidden = !formularioCliente.hidden;
 });
 
 // Acessa a dashboard do cliente
-formularioCliente.addEventListener('submit', function(event) {
+formularioCliente.addEventListener('submit', function (event) {
     event.preventDefault();
 
     const codigo = document.getElementById('codigoCliente').value.trim();
@@ -482,4 +498,127 @@ formularioCliente.addEventListener('submit', function(event) {
     } else {
         alert('Código do cliente inválido!');
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- 1. TROCA DE PÁGINAS DA SIDEBAR ---
+    const menuLinks = document.querySelectorAll('.sidebar .menu-item');
+    const paginas = {
+        dashboard: document.querySelector('.pagina-dashboard'),
+        watchlist: document.querySelector('.pagina-watchlist'),
+        carteira: document.querySelector('.pagina-carteira'),
+        relatorios: document.querySelector('.pagina-relatorios')
+    };
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const paginaAlvo = link.getAttribute('data-pagina');
+
+            // Atualiza classe ativa no menu
+            menuLinks.forEach(item => item.classList.remove('ativo'));
+            link.classList.add('ativo');
+
+            // Esconde todas e mostra apenas a selecionada
+            Object.keys(paginas).forEach(chave => {
+                if (paginas[chave]) {
+                    paginas[chave].hidden = (chave !== paginaAlvo);
+                }
+            });
+        });
+    });
+
+    // --- 2. GERENCIAMENTO DA CARTEIRA ---
+    // Dados iniciais de exemplo
+    let carteira = [
+        { id: 1, ativo: 'PETR4', tipo: 'Ação', quantidade: 200, precoMedio: 30.50 },
+        { id: 2, ativo: 'VALE3', tipo: 'Ação', quantidade: 100, precoMedio: 62.00 },
+        { id: 3, ativo: 'HGLG11', tipo: 'FII', quantidade: 50, precoMedio: 160.00 }
+    ];
+
+    const corpoTabela = document.getElementById('corpoTabelaCarteira');
+    const painelFormAtivo = document.getElementById('painelFormAtivo');
+    const btnAbrirModal = document.getElementById('btnAbrirModalAtivo');
+    const btnCancelarForm = document.getElementById('btnCancelarForm');
+    const formAdicionarAtivo = document.getElementById('formAdicionarAtivo');
+
+    // Função para formatar Moeda (BRL)
+    const formatarMoeda = (valor) => {
+        return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    };
+
+    // Renderizar tabela da carteira
+    function renderizarCarteira() {
+        if (!corpoTabela) return;
+        corpoTabela.innerHTML = '';
+
+        if (carteira.length === 0) {
+            corpoTabela.innerHTML = `<tr><td colspan="6" style="text-align:center; color: #888;">Nenhum ativo cadastrado.</td></tr>`;
+            return;
+        }
+
+        carteira.forEach(item => {
+            const total = item.quantidade * item.precoMedio;
+            const tr = document.createElement('tr');
+
+            tr.innerHTML = `
+                <td><strong>${item.ativo}</strong></td>
+                <td>${item.tipo}</td>
+                <td>${item.quantidade}</td>
+                <td>${formatarMoeda(item.precoMedio)}</td>
+                <td><strong>${formatarMoeda(total)}</strong></td>
+                <td>
+                    <button class="btn-excluir" onclick="removerAtivo(${item.id})">Excluir</button>
+                </td>
+            `;
+            corpoTabela.appendChild(tr);
+        });
+    }
+
+    // Abrir/Fechar Formulário
+    if (btnAbrirModal) {
+        btnAbrirModal.addEventListener('click', () => {
+            painelFormAtivo.hidden = !painelFormAtivo.hidden;
+        });
+    }
+
+    if (btnCancelarForm) {
+        btnCancelarForm.addEventListener('click', () => {
+            painelFormAtivo.hidden = true;
+            formAdicionarAtivo.reset();
+        });
+    }
+
+    // Adicionar Ativo
+    if (formAdicionarAtivo) {
+        formAdicionarAtivo.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const novoAtivo = {
+                id: Date.now(),
+                ativo: document.getElementById('codigoAtivo').value.toUpperCase(),
+                tipo: document.getElementById('tipoAtivo').value,
+                quantidade: parseInt(document.getElementById('quantidadeAtivo').value),
+                precoMedio: parseFloat(document.getElementById('precoMedio').value)
+            };
+
+            carteira.push(novoAtivo);
+            renderizarCarteira();
+
+            // Limpa e oculta o formulário
+            formAdicionarAtivo.reset();
+            painelFormAtivo.hidden = true;
+        });
+    }
+
+    // Excluir Ativo da Carteira
+    window.removerAtivo = function(id) {
+        carteira = carteira.filter(item => item.id !== id);
+        renderizarCarteira();
+    };
+
+    // Inicialização
+    renderizarCarteira();
 });

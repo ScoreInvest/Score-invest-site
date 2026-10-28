@@ -973,3 +973,104 @@ body {
         width: 240px;
     }
 }
+
+
+
+/* */
+
+.conteudo {
+    flex: 1;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    width: 100%;
+}
+
+
+.pagina-carteira .cabecalho-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+.carteira {
+    background: var(--fundo-card);
+    padding: 24px;
+    margin-top: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--borda);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+.carteira h3 {
+    color: var(--texto);
+    font-size: 17px;
+    margin: 0 0 20px;
+}
+
+
+.carteira table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.carteira th {
+    color: var(--texto-secundario);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.carteira td {
+    padding: 16px;
+    font-size: 13px;
+    color: var(--texto);
+    border-bottom: 1px solid var(--borda);
+}
+
+.carteira tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.carteira tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.carteira .positivo {
+    color: var(--verde-grafico);
+    font-weight: 600;
+}
+
+.carteira .negativo {
+    color: var(--vermelho);
+    font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+    .conteudo {
+        padding: 16px;
+    }
+    
+    .pagina-carteira .cabecalho-pagina {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .carteira {
+        padding: 16px 12px;
+    }
+}.dashboard-container { 
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
