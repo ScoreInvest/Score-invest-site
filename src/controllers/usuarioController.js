@@ -1,104 +1,109 @@
-let usuarioModel = require("../models/usuarioModel");
-let bcrypt = require("bcrypt");
+const usuarioModel = require("../models/usuarioModel");
+const bcrypt = require("bcrypt");
 
-function autenticar(req, res) {
-  let email = req.body.emailServer;
-  let senha = req.body.senhaServer;
+async function autenticar(req, res) {
+  const email = req.body.emailServer;
+  const senha = req.body.senhaServer;
 
-  usuarioModel.autenticar(email, senha).then(function (resultado) {
-    if (resultado.length == 0) {
-      res.status(401).json({
-        mensagem: "E-mail ou senha inválido",
+  if (typeof email !== "string" || !email.trim()) {
+    return res.status(400).json({
+      mensagem: "Informe seu e-mail."
+    });
+  }
+
+  if (typeof senha !== "string" || !senha.trim()) {
+    return res.status(400).json({
+      mensagem: "Informe sua senha."
+    });
+  }
+
+  try {
+    const resultado = await usuarioModel.autenticar(email.trim());
+
+    if (resultado.length === 0) {
+      return res.status(401).json({
+        mensagem: "E-mail ou senha inválidos."
       });
-      return;
     }
 
-    let usuario = resultado[0];
+    const usuario = resultado[0];
+    const senhaCorreta = await bcrypt.compare(
+      senha,
+      usuario.password_hash
+    );
 
-    bcrypt.compare(senha, usuario.password_hash).then(function (senhaCorreta) {
-      if (!senhaCorreta) {
-        res.status(401).json({
-          mensagem: "E-mail ou senha Inválidos",
-        });
-        return;
-      }
-
-      res.status(200).json({
-        id: usuario.id,
-        nome: usuario.userr_name,
-        email: usuario.email,
-        empresaId: usuario.fk_empresa,
-        role: usuario.name_role,
+    if (!senhaCorreta) {
+      return res.status(401).json({
+        mensagem: "E-mail ou senha inválidos."
       });
+    }
+
+    return res.status(200).json({
+      id: usuario.id,
+      nome: usuario.userr_name,
+      email: usuario.email,
+      empresaId: usuario.fk_empresa,
+      role: usuario.name_role
     });
-  })
-  .catch(function(err){
-    console.log(err)
-    res.status(500).json(err.sqlMessage)
-  });
-}
+  } catch (erro) {
+    console.error("Erro ao autenticar:", erro);
 
-
-function cadastrar(req, res) {
-
-  let nome = req.body.nomeServer;
-  let email = req.body.emailServer;
-  let senha = req.body.senhaServer;
-  let empresa = req.body.empresaServer;
-
-  console.log("E-mail recebido:", email);
-  console.log("Empresa recebida:", empresa);
-
-  let senhaHash = bcrypt.hashSync(senha, 10);
-
-  if (nome == undefined) {
-    res.status(400).send("Seu nome está undefined!");
-
-  } else if (email == undefined) {
-    res.status(400).send("Seu email está undefined!");
-
-  } else if (senha == undefined) {
-    res.status(400).send("Sua senha está undefined!");
-
-  } else if (empresa == undefined) {
-    res.status(400).send("Sua empresa está undefined!");
-
-  } else {
-
-    usuarioModel.buscarEmpresa(empresa)
-      .then(function (resultado) {
-
-        if (resultado.length == 0) {
-          res.status(400).send("Empresa não encontrada!");
-          return;
-        }
-
-        let fkEmpresa = resultado[0].id_enterprise;
-
-        usuarioModel
-          .cadastrar(nome, email, senhaHash, fkEmpresa)
-          .then(function (resultado) {
-            res.status(201).json(resultado);
-          })
-          .catch(function (erro) {
-            console.log(erro);
-            console.log(
-              "\nHouve um erro ao realizar o cadastro! Erro: ",
-              erro.sqlMessage,
-            );
-            res.status(500).json(erro.sqlMessage);
-          });
-
-      })
-      .catch(function (erro) {
-        console.log(erro);
-        res.status(500).json(erro.sqlMessage);
-      });
+    return res.status(500).json({
+      mensagem: "Erro interno ao realizar o login."
+    });
   }
 }
 
+async function cadastrar(req, res) {
+  const nome = req.body.nomeServer;
+  const email = req.body.emailServer;
+  const senha = req.body.senhaServer;
+  const empresa = req.body.empresaServer;
+
+  if (typeof nome !== "string" || !nome.trim()) {
+    return res.status(400).send("Informe seu nome.");
+  }
+
+  if (typeof email !== "string" || !email.trim()) {
+    return res.status(400).send("Informe seu e-mail.");
+  }
+
+  if (typeof senha !== "string" || !senha.trim()) {
+    return res.status(400).send("Informe sua senha.");
+  }
+
+  if (typeof empresa !== "string" || !empresa.trim()) {
+    return res.status(400).send("Informe sua empresa.");
+  }
+
+  try {
+    const empresas = await usuarioModel.buscarEmpresa(empresa.trim());
+
+    if (empresas.length === 0) {
+      return res.status(400).send("Empresa não encontrada!");
+    }
+
+    const fkEmpresa = empresas[0].id_enterprise;
+    const senhaHash = await bcrypt.hash(senha, 10);
+
+    const resultado = await usuarioModel.cadastrar(
+      nome.trim(),
+      email.trim(),
+      senhaHash,
+      fkEmpresa
+    );
+
+    return res.status(201).json(resultado);
+  } catch (erro) {
+    console.error("Erro ao cadastrar:", erro);
+
+    return res.status(500).json({
+      mensagem: "Erro interno ao realizar o cadastro."
+    });
+  }
+}
 
 module.exports = {
   autenticar,
-  cadastrar,
+  cadastrar
 };
