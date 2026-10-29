@@ -35,7 +35,7 @@ function cadastrar(nome, email, senhaHash, fkEmpresa) {
             (
                 SELECT id_role
                 FROM role
-                WHERE name_role = 'CONSULTOR'
+                WHERE name_role = 'ANALISTA'
             )
         );
     `;
@@ -48,19 +48,17 @@ function cadastrar(nome, email, senhaHash, fkEmpresa) {
 function autenticar(email) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email)
     let instrucaoSql = `
-       SELECT 
-        u.userr_name,
-        u.email,
-        u.password_hash,
-        e.name AS Empresa, 
-        r.name_role AS Função
-       FROM userr u 
-       JOIN enterprise e 
-	    ON u.fk_empresa = e.id_enterprise
-       JOIN role r
-	    ON u.fk_role = r.id_role
-       WHERE u.email = '${email}'
-    `;
+    SELECT
+        u.*,
+        e.name AS empresa,
+        r.name_role AS name_role
+    FROM userr u
+    JOIN enterprise e
+        ON u.fk_empresa = e.id_enterprise
+    JOIN role r
+        ON u.fk_role = r.id_role
+    WHERE u.email = '${email}'
+`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
